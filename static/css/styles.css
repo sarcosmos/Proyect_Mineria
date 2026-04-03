@@ -1,3 +1,4 @@
+/* ===== Reset básico ===== */
 body {
     margin: 0;
     font-family: Arial, sans-serif;
@@ -5,7 +6,7 @@ body {
     background-color: #f4f6f9;
 }
 
-/* Sidebar */
+/* ===== Sidebar ===== */
 .sidebar {
     width: 220px;
     height: 100vh;
@@ -13,14 +14,17 @@ body {
     color: white;
     position: fixed;
     padding-top: 20px;
+    transition: 0.3s;
 }
 
+/* Título */
 .sidebar h2 {
     text-align: center;
     margin-bottom: 30px;
     font-size: 20px;
 }
 
+/* Links */
 .sidebar a {
     display: block;
     color: white;
@@ -33,32 +37,84 @@ body {
     background-color: #34344a;
 }
 
-/* Contenido */
-.content {
-    margin-left: 220px;
-    padding: 30px;
-    width: 100%;
-    max-width: 1000px;
+/* ===== Botón toggle ===== */
+.toggle-btn {
+    position: absolute;
+    top: 10px;
+    right: -15px;
+    background: #1e1e2f;
+    color: white;
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    text-align: center;
+    line-height: 30px;
+    cursor: pointer;
+    font-weight: bold;
 }
 
-/* Títulos */
+/* ===== Sidebar colapsado ===== */
+.sidebar.collapsed {
+    width: 70px;
+}
+
+.sidebar.collapsed h2 {
+    display: none;
+}
+
+.sidebar.collapsed a {
+    text-align: center;
+    padding: 15px 0;
+}
+
+/* ===== Contenido ===== */
+.content {
+    margin-left: 220px;
+    padding: 40px;
+    width: 100%;
+    max-width: 900px;
+    transition: 0.3s;
+}
+
+/* Cuando sidebar está colapsado */
+.content.expanded {
+    margin-left: 70px;
+}
+
+/* ===== Títulos ===== */
 .content h1 {
     color: #1e1e2f;
     margin-bottom: 20px;
 }
 
-/* Texto */
+/* ===== Texto ===== */
 .content p {
     text-align: justify;
     line-height: 1.7;
     color: #333;
 }
 
-/* Tarjeta (para secciones) */
+/* ===== Tarjetas ===== */
 .card {
     background-color: white;
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0px 2px 8px rgba(0,0,0,0.1);
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0px 4px 12px rgba(0,0,0,0.08);
     margin-bottom: 20px;
+}
+
+/* ===== Responsive (opcional pero útil) ===== */
+@media (max-width: 768px) {
+    .sidebar {
+        width: 70px;
+    }
+
+    .sidebar h2 {
+        display: none;
+    }
+
+    .content {
+        margin-left: 70px;
+        padding: 20px;
+    }
 }

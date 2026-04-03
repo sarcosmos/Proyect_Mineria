@@ -2,37 +2,57 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <title>Proyecto</title>
+    <title>Dataset</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
 </head>
 <body>
 
-    <div class="sidebar">
+    <!-- Sidebar -->
+    <div class="sidebar" id="sidebar">
+        <div class="toggle-btn" onclick="toggleSidebar()">☰</div>
+
         <h2>Telco Customer Churn</h2>
-        <a href="/">Inicio</a>
-        <a href="/dataset">Dataset</a>
-        <a href="/analisis">Análisis</a>
-        <a href="/resultados">Resultados</a>
+        <a href="/">🏠 Inicio</a>
+        <a href="/dataset">📊 Dataset</a>
+        <a href="/analisis">📈 Análisis</a>
+        <a href="/resultados">📉 Resultados</a>
     </div>
-<div class="card">
-<h1>Dataset - Introducción</h1>
 
-<p>
-En el contexto actual, las organizaciones generan grandes volúmenes de datos provenientes de sus operaciones diarias, lo que ha impulsado la necesidad de aplicar técnicas de minería de datos para extraer conocimiento útil y apoyar la toma de decisiones. Uno de los problemas más relevantes en el sector empresarial es la retención de clientes, ya que la pérdida de estos impacta directamente en los ingresos y la sostenibilidad del negocio.
-</p>
+    <!-- Contenido -->
+    <div class="content" id="content">
 
-<p>
-La minería de datos permite analizar el comportamiento de los clientes e identificar patrones asociados al abandono de servicios, conocido como <strong>churn</strong>. A través del uso de técnicas estadísticas y algoritmos de aprendizaje automático, es posible predecir qué clientes tienen mayor probabilidad de cancelar un servicio, permitiendo a las empresas implementar estrategias de fidelización más efectivas.
-</p>
+        <div class="card">
+            <h1>Dataset - Introducción</h1>
 
-<p>
-El presente proyecto tiene como objetivo desarrollar una aplicación web utilizando el framework Flask, orientada al análisis y predicción del abandono de clientes en una empresa de telecomunicaciones. Para ello, se emplea un dataset estructurado en formato CSV que contiene información relevante sobre los clientes, sus servicios contratados y su comportamiento histórico.
-</p>
+            <p>
+            En el contexto actual, las organizaciones generan grandes volúmenes de datos provenientes de sus operaciones diarias, lo que ha impulsado la necesidad de aplicar técnicas de minería de datos para extraer conocimiento útil y apoyar la toma de decisiones. Uno de los problemas más relevantes en el sector empresarial es la retención de clientes, ya que la pérdida de estos impacta directamente en los ingresos y la sostenibilidad del negocio.
+            </p>
 
-<p>
-La aplicación permitirá realizar análisis exploratorio de datos, visualizar patrones relevantes y ejecutar modelos predictivos que faciliten la identificación de clientes en riesgo de abandono. De esta manera, el proyecto demuestra la aplicación práctica de la minería de datos en la resolución de problemas reales, contribuyendo a la toma de decisiones basada en datos.
-</p>
+            <p>
+            La minería de datos permite analizar el comportamiento de los clientes e identificar patrones asociados al abandono de servicios, conocido como <strong>churn</strong>. A través del uso de técnicas estadísticas y algoritmos de aprendizaje automático, es posible predecir qué clientes tienen mayor probabilidad de cancelar un servicio, permitiendo a las empresas implementar estrategias de fidelización más efectivas.
+            </p>
 
-</div>
+            <p>
+            El presente proyecto tiene como objetivo desarrollar una aplicación web utilizando el framework Flask, orientada al análisis y predicción del abandono de clientes en una empresa de telecomunicaciones. Para ello, se emplea un dataset estructurado en formato CSV que contiene información relevante sobre los clientes, sus servicios contratados y su comportamiento histórico.
+            </p>
+
+            <p>
+            La aplicación permitirá realizar análisis exploratorio de datos, visualizar patrones relevantes y ejecutar modelos predictivos que faciliten la identificación de clientes en riesgo de abandono. De esta manera, el proyecto demuestra la aplicación práctica de la minería de datos en la resolución de problemas reales, contribuyendo a la toma de decisiones basada en datos.
+            </p>
+        </div>
+
+    </div>
+
+    <!-- Script para minimizar sidebar -->
+    <script>
+        function toggleSidebar() {
+            const sidebar = document.getElementById("sidebar");
+            const content = document.getElementById("content");
+
+            sidebar.classList.toggle("collapsed");
+            content.classList.toggle("expanded");
+        }
+    </script>
+
 </body>
 </html>

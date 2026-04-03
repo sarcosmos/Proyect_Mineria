@@ -7,41 +7,63 @@
 </head>
 <body>
 
-    <div class="sidebar">
+    <!-- Sidebar -->
+    <div class="sidebar" id="sidebar">
+        <div class="toggle-btn" onclick="toggleSidebar()">☰</div>
+
         <h2>Telco Customer Churn</h2>
-        <a href="/">Inicio</a>
-        <a href="/dataset">Dataset</a>
-        <a href="/analisis">Análisis</a>
-        <a href="/resultados">Resultados</a>
+
+        <a href="/">🏠 Inicio</a>
+        <a href="/dataset">📊 Dataset</a>
+        <a href="/analisis">📈 Análisis</a>
+        <a href="/resultados">📉 Resultados</a>
     </div>
 
-<div class="content">
-    <h1>Proyecto de Minería de Datos</h1>
+    <!-- Contenido -->
+    <div class="content" id="content">
 
-        <p>
-        Este proyecto tiene como objetivo analizar un dataset utilizando técnicas de minería de datos.
-        </p>
+        <div class="card">
+            <h1>Proyecto de Minería de Datos</h1>
 
-    <h3>Objetivos</h3>
-        <ul>
-            <li>Explorar los datos</li>
-            <li>Identificar patrones</li>
-            <li>Aplicar modelos de análisis</li>
-        </ul>
+            <p>
+            Este proyecto tiene como objetivo analizar un dataset utilizando técnicas de minería de datos.
+            </p>
 
-    <h3>Descripción</h3>
-        <p>
-        En esta aplicación podrás navegar entre las diferentes fases del proyecto:
-        dataset, análisis y resultados.
-        </p>
+            <h3>Objetivos</h3>
+            <ul>
+                <li>Explorar los datos</li>
+                <li>Identificar patrones</li>
+                <li>Aplicar modelos de análisis</li>
+            </ul>
 
-    <h4>Integrantes</h4>
-        <ul>
-            <li>Andres Felipe Bohorquez Garzon</li>
-            <li>Tatiana Sandoval Buitriago</li>
-            <li>Samir Alberto Castillo Romero</li>
-        </ul>        
-</div>
+            <h3>Descripción</h3>
+            <p>
+            En esta aplicación podrás navegar entre las diferentes fases del proyecto:
+            dataset, análisis y resultados.
+            </p>
+        </div>
+
+        <div class="card">
+            <h4>Integrantes</h4>
+            <ul>
+                <li>Andres Felipe Bohorquez Garzon</li>
+                <li>Tatiana Sandoval Buitriago</li>
+                <li>Samir Alberto Castillo Romero</li>
+            </ul>
+        </div>
+
+    </div>
+
+    <!-- Script para minimizar sidebar -->
+    <script>
+        function toggleSidebar() {
+            const sidebar = document.getElementById("sidebar");
+            const content = document.getElementById("content");
+
+            sidebar.classList.toggle("collapsed");
+            content.classList.toggle("expanded");
+        }
+    </script>
 
 </body>
 </html>
