@@ -2,6 +2,7 @@ body {
     margin: 0;
     font-family: Arial, sans-serif;
     display: flex;
+    background-color: #f4f6f9;
 }
 
 /* Sidebar */
@@ -17,6 +18,7 @@ body {
 .sidebar h2 {
     text-align: center;
     margin-bottom: 30px;
+    font-size: 20px;
 }
 
 .sidebar a {
@@ -24,6 +26,7 @@ body {
     color: white;
     padding: 12px 20px;
     text-decoration: none;
+    transition: 0.3s;
 }
 
 .sidebar a:hover {
@@ -33,6 +36,29 @@ body {
 /* Contenido */
 .content {
     margin-left: 220px;
-    padding: 20px;
+    padding: 30px;
     width: 100%;
+    max-width: 1000px;
+}
+
+/* Títulos */
+.content h1 {
+    color: #1e1e2f;
+    margin-bottom: 20px;
+}
+
+/* Texto */
+.content p {
+    text-align: justify;
+    line-height: 1.7;
+    color: #333;
+}
+
+/* Tarjeta (para secciones) */
+.card {
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 2px 8px rgba(0,0,0,0.1);
+    margin-bottom: 20px;
 }
