@@ -2,68 +2,99 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <title>Proyecto</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard | Telco Churn</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
 </head>
 <body>
 
-    <!-- Sidebar -->
-    <div class="sidebar" id="sidebar">
-        <div class="toggle-btn" onclick="toggleSidebar()">☰</div>
-
-        <h2>Telco Customer Churn</h2>
-
-        <a href="/">🏠 Inicio</a>
-        <a href="/dataset">📊 Dataset</a>
-        <a href="/analisis">📈 Análisis</a>
-        <a href="/resultados">📉 Resultados</a>
-    </div>
-
-    <!-- Contenido -->
-    <div class="content" id="content">
-
-        <div class="card">
-            <h1>Proyecto de Minería de Datos</h1>
-
-            <p>
-            Este proyecto tiene como objetivo analizar un dataset utilizando técnicas de minería de datos.
-            </p>
-
-            <h3>Objetivos</h3>
-            <ul>
-                <li>Explorar los datos</li>
-                <li>Identificar patrones</li>
-                <li>Aplicar modelos de análisis</li>
-            </ul>
-
-            <h3>Descripción</h3>
-            <p>
-            En esta aplicación podrás navegar entre las diferentes fases del proyecto:
-            dataset, análisis y resultados.
-            </p>
+    <nav class="topbar">
+        <div class="logo-area">
+            <h2>ChurnMiner</h2>
         </div>
+        <ul class="nav-links">
+            <li><a href="#resumen">Resumen Ejecutivo</a></li>
+            <li><a href="#dataset">Explorar Dataset</a></li>
+            <li><a href="#analisis">Análisis y Modelos</a></li>
+        </ul>
+        <div class="uni-tag">Universidad de Cundinamarca</div>
+    </nav>
 
-        <div class="card">
-            <h4>Integrantes</h4>
-            <ul>
-                <li>Andres Felipe Bohorquez Garzon</li>
-                <li>Tatiana Sandoval Buitriago</li>
-                <li>Samir Alberto Castillo Romero</li>
-            </ul>
-        </div>
+    <main class="content">
+        
+        <section id="resumen" class="page-section">
+            <header>
+                <h1>Predicción de Abandono de Clientes</h1>
+                <p class="subtitle">Minería de Datos Aplicada - Facultad de Ingeniería</p>
+            </header>
 
-    </div>
+            <div class="cards-grid">
+                <div class="card">
+                    <h3>La Problemática</h3>
+                    <p>En la industria de las telecomunicaciones, cuesta <strong>5 veces más</strong> adquirir un nuevo cliente que retener a uno existente. Actualmente, la empresa enfrenta una alta tasa de cancelación de servicios (Churn).</p>
+                </div>
+                <div class="card">
+                    <h3>Nuestro Objetivo</h3>
+                    <ul>
+                        <li><strong>Explorar:</strong> Identificar patrones de comportamiento.</li>
+                        <li><strong>Predecir:</strong> Construir un modelo de Machine Learning.</li>
+                        <li><strong>Actuar:</strong> Generar estrategias de retención anticipadas.</li>
+                    </ul>
+                </div>
+                <div class="card">
+                    <h3>Sobre el Dataset</h3>
+                    <p>Contiene datos de <strong>7,043 clientes</strong> e incluye:</p>
+                    <div class="tags">
+                        <span class="tag">Datos Demográficos</span>
+                        <span class="tag">Servicios Contratados</span>
+                        <span class="tag">Facturación</span>
+                    </div>
+                </div>
+            </div>
+        </section>
 
-    <!-- Script para minimizar sidebar -->
-    <script>
-        function toggleSidebar() {
-            const sidebar = document.getElementById("sidebar");
-            const content = document.getElementById("content");
+        <section id="dataset" class="page-section">
+            <header>
+                <h1>Exploración del Dataset</h1>
+                <p class="subtitle">Primeros registros de la base de datos (Total: {{ total_filas }} clientes y {{ total_columnas }} variables)</p>
+            </header>
 
-            sidebar.classList.toggle("collapsed");
-            content.classList.toggle("expanded");
-        }
-    </script>
+            <div class="table-container">
+                {% if total_filas > 0 %}
+                <table class="data-table">
+                    <thead>
+                        <tr>
+                            {% for col in columnas %}<th>{{ col }}</th>{% endfor %}
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for fila in filas %}
+                        <tr>
+                            {% for valor in fila %}<td>{{ valor }}</td>{% endfor %}
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+                {% else %}
+                <div class="card">
+                    <h3>Error de lectura</h3>
+                    <p>No se pudo encontrar el archivo CSV. Asegúrate de que esté en la carpeta "data".</p>
+                </div>
+                {% endif %}
+            </div>
+        </section>
+
+        <section id="analisis" class="page-section">
+            <header>
+                <h1>Análisis y Modelos</h1>
+                <p class="subtitle">Próximamente: Gráficas y resultados del algoritmo</p>
+            </header>
+            <div class="card">
+                <p>En esta sección integraremos los gráficos generados con Python para entender la fuga de clientes.</p>
+            </div>
+        </section>
+
+    </main>
 
 </body>
 </html>
